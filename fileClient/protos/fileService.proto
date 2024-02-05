@@ -1,0 +1,13 @@
+syntax="proto3";
+
+option java_multiple_files=true;
+
+message FileRequest{
+  string fileName = 1;
+}
+message FileResponse{
+  string fileContent = 1;
+}
+service FileServer{
+  rpc getFile(FileRequest) returns (FileResponse){};
+}
