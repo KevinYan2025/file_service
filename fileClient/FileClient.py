@@ -1,5 +1,5 @@
 import grpc
-from fileService_pb2 import FileRequest
+from fileService_pb2 import FileName
 from fileService_pb2_grpc import FileServerStub
 
 def run():
@@ -10,16 +10,16 @@ def run():
     stub = FileServerStub(channel)
 
     # Create a request
-    file_request = FileRequest(fileName="1234.txt")
+    file_name = FileName(fileName="1234.txt")
 
     # Call the RPC method and get the response
-    file_response = stub.getFile(file_request)
+    file_content = stub.getFileContent(file_name)
 
     # Print the response
-    print(file_response)
+    print(file_content)
 
 if __name__ == '__main__':
-    n = 0;
-    for n in range (10000):
+    n = 0
+    for n in range (5000):
         n = n+1
         run()

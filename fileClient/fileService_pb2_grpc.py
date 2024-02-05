@@ -14,17 +14,17 @@ class FileServerStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.getFile = channel.unary_unary(
-                '/FileServer/getFile',
-                request_serializer=fileService__pb2.FileRequest.SerializeToString,
-                response_deserializer=fileService__pb2.FileResponse.FromString,
+        self.getFileContent = channel.unary_unary(
+                '/FileServer/getFileContent',
+                request_serializer=fileService__pb2.FileName.SerializeToString,
+                response_deserializer=fileService__pb2.FileContent.FromString,
                 )
 
 
 class FileServerServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def getFile(self, request, context):
+    def getFileContent(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -33,10 +33,10 @@ class FileServerServicer(object):
 
 def add_FileServerServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'getFile': grpc.unary_unary_rpc_method_handler(
-                    servicer.getFile,
-                    request_deserializer=fileService__pb2.FileRequest.FromString,
-                    response_serializer=fileService__pb2.FileResponse.SerializeToString,
+            'getFileContent': grpc.unary_unary_rpc_method_handler(
+                    servicer.getFileContent,
+                    request_deserializer=fileService__pb2.FileName.FromString,
+                    response_serializer=fileService__pb2.FileContent.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -49,7 +49,7 @@ class FileServer(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def getFile(request,
+    def getFileContent(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,8 +59,8 @@ class FileServer(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/FileServer/getFile',
-            fileService__pb2.FileRequest.SerializeToString,
-            fileService__pb2.FileResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/FileServer/getFileContent',
+            fileService__pb2.FileName.SerializeToString,
+            fileService__pb2.FileContent.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

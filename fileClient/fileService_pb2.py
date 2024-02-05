@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11\x66ileService.proto\"\x1f\n\x0b\x46ileRequest\x12\x10\n\x08\x66ileName\x18\x01 \x01(\t\"#\n\x0c\x46ileResponse\x12\x13\n\x0b\x66ileContent\x18\x01 \x01(\t26\n\nFileServer\x12(\n\x07getFile\x12\x0c.FileRequest\x1a\r.FileResponse\"\x00\x42\x02P\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11\x66ileService.proto\"\x1c\n\x08\x46ileName\x12\x10\n\x08\x66ileName\x18\x01 \x01(\t\"\"\n\x0b\x46ileContent\x12\x13\n\x0b\x66ileContent\x18\x01 \x01(\t29\n\nFileServer\x12+\n\x0egetFileContent\x12\t.FileName\x1a\x0c.FileContent\"\x00\x42\x02P\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,10 +22,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'fileService_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'P\001'
-  _globals['_FILEREQUEST']._serialized_start=21
-  _globals['_FILEREQUEST']._serialized_end=52
-  _globals['_FILERESPONSE']._serialized_start=54
-  _globals['_FILERESPONSE']._serialized_end=89
-  _globals['_FILESERVER']._serialized_start=91
-  _globals['_FILESERVER']._serialized_end=145
+  _globals['_FILENAME']._serialized_start=21
+  _globals['_FILENAME']._serialized_end=49
+  _globals['_FILECONTENT']._serialized_start=51
+  _globals['_FILECONTENT']._serialized_end=85
+  _globals['_FILESERVER']._serialized_start=87
+  _globals['_FILESERVER']._serialized_end=144
 # @@protoc_insertion_point(module_scope)
